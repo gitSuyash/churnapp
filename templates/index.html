@@ -1,9 +1,39 @@
 <!DOCTYPE html>
 <html >
+<link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+<style type="text/css">
+  .center {
+  margin: auto;
+  width: 50%;
+  /*border: 3px solid green;*/
+  padding: 10px;
+}
+body{
+  background-color: #1c1b1a;
+  color: #fff;
+  font-size: 20px;
+  font-family: 'Secular One', sans-serif;
+}
+div{
+  margin:10px ;
+}
+button{
+  margin-left: 10px;
+  margin-top:20px;
+  width:200px;
+  height:50px;
+  font-size: 20px;
+  background-color: #4287f5;
+  border-radius: 10%;
+  color: #fff;
+  font-style: 'bold';
+  cursor:pointer;
+}
+</style>
 <!--From https://codepen.io/frytyler/pen/EGdtg-->
 <head>
   <meta charset="UTF-8">
-  <title>ML API</title>
+  <title>Churn App</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -12,30 +42,45 @@
   
 </head>
 
-<body>
+<body class='center'>
  <div class="login">
-	<h1>Predict Salary Analysis</h1>
+	<h1>Will Your Customer Churn</h1>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="experience" placeholder="Experience" required="required" />
-        <input type="text" name="test_score" placeholder="Test Score" required="required" />
-		<input type="text" name="interview_score" placeholder="Interview Score" required="required" />
-<input type="text" name="exence" placeholder="Experience" required="required" />
-        <input type="text" name="est_score" placeholder="Test Score" required="required" />
-    <input type="text" name="iview_score" placeholder="Interview Score" required="required" />
-    <input type="text" name="eience" placeholder="Experience" required="required" />
-        <input type="text" name="tst_score" placeholder="Test Score" required="required" />
-    <input type="text" name="intervw_score" placeholder="Interview Score" required="required" />
-    <input type="text" name="experien" placeholder="Experience" required="required" />
-        <input type="text" name="test_scor" placeholder="Test Score" required="required" />
-    <input type="text" name="interview_scre" placeholder="Interview Score" required="required" />
-    <input type="text" name="experiece" placeholder="Experience" required="required" />
-        <input type="text" name="testcore" placeholder="Test Score" required="required" />
-    <input type="text" name="intview_score" placeholder="Interview Score" required="required" />
-    <input type="text" name="expe" placeholder="Experience" required="required" />
-        <input type="text" name="tst_score" placeholder="Test Score" required="required" />
-    <input type="text" name="nterview_score" placeholder="Interview Score" required="required" />
+    	<div>Credit Score: <input type="text" name="CreditScore" placeholder="CreditScore" required="required" /></div>
+      <div>Country: <select id="Country" name="Country" placeholder = "Country">
+    <option value="Germany">Germany</option>
+    <option value="France">France</option>
+    <option value="Spain">Spain</option>
+  </select></div>
+  <div>Gender :
+  <select id="Gender" name="Gender" placeholder = "Gender">
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select></div>
+        <div>Age:
+		<input type="text" name="Age" placeholder="Age" required="required" />
+</div><div>Tenure:
+        <input type="text" name="Tenure" placeholder="Tenure" required="required" />
+    </div>
+    <div>Balance:
+    <input type="text" name="Balance" placeholder="Balance" required="required" /></div>
+    <div>Number of Products: 
+        <input type="text" name="NumOfProducts" placeholder="NumOfProducts" required="required" /></div>
+        <div> Has Credit Card:
+    <select id="Credit Card" name="Credit Card" placeholder = "Credit Card">
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select></div>
+    <div> Active Member:
+    <select id="Active Member" name="Active Member" placeholder = "Active Member">
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select></div>
+    <div>Estimated Salary:
+        <input type="text" name="EstimatedSalary" placeholder="EstimatedSalary" required="required" />
+    </div>
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
 
